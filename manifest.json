@@ -1,0 +1,13 @@
+{
+    "domain": "obico_ml",
+    "name": "Obico ML",
+    "config_flow": true,
+    "version": "1.0",
+    "documentation": "https://github.com/nobodyguy/obico_ml_ha_integration",
+    "requirements": [],
+    "dependencies": ["camera"],
+    "iot_class": "local_polling",
+    "codeowners": ["@nobodyguy"],
+    "supported_platforms": ["camera", "binary_sensor", "switch"]
+  }
+  
