@@ -4,6 +4,7 @@
     "config_flow": true,
     "version": "1.0",
     "documentation": "https://github.com/nobodyguy/obico_ml_ha_integration",
+    "issue_tracker": "https://github.com/nobodyguy/obico_ml_ha_integration/issues",
     "requirements": [],
     "dependencies": ["camera"],
     "iot_class": "local_polling",
