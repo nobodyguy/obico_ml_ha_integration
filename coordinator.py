@@ -54,16 +54,24 @@ class ObicoDataUpdateCoordinator(DataUpdateCoordinator):
                         raise Exception(f"API call failed: {detection_response.status}")
                     
                     detection_data = await detection_response.json()
+                    detections = detection_data.get("detections", [])
+                    error_detected = detections != []
 
-                    error_detected = detection_data.get("detections", []) != []
+                    # Calculate average confidence
+                    avg_confidence = 0
+                    if detections:
+                        confidences = [detection[1] for detection in detections]
+                        avg_confidence = (sum(confidences) / len(confidences)) * 100
+                        avg_confidence = round(avg_confidence, 2)
+
                     image_with_errors_base64 = detection_data.get("image_with_detections", None)
-
                     if image_with_errors_base64:
                         image_with_errors = base64.b64decode(image_with_errors_base64)
 
                     return {
                         "image_with_errors": image_with_errors,
-                        "error_detected": error_detected
+                        "error_detected": error_detected,
+                        "avg_confidence": avg_confidence,
                     }
             except Exception as err:
                 _LOGGER.error(f"Error fetching data from Obico API: {err}")
