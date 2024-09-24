@@ -10,6 +10,7 @@ HA Integration for [Obico ML REST API server addon](https://github.com/nobodyguy
 - Provides three Home Assistant entities:
   - **Camera**: Displays the image with detected errors.
   - **Binary Sensor**: Indicates whether any errors have been detected.
+  - **Sensor**: Indicates detected failure confidence.
   - **Switch**: Toggles communication with the detection API.
 
 ## Installation
@@ -50,6 +51,10 @@ Displays the image with detected 3D printing errors. This camera entity updates 
 ### Binary Sensor
 
 A binary sensor that indicates whether any errors have been detected. If errors are found in the image, the sensor will show `on`, otherwise `off`.
+
+### Sensor
+
+A numeric sensor that indicates detected failure confidence.
 
 ### Switch
 
