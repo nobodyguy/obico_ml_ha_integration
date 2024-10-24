@@ -24,7 +24,9 @@ class ObicoConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     async def async_step_user(self, user_input=None):
         if user_input is not None:
-            return self.async_create_entry(title="Obico ML", data=user_input)
+            camera_id = user_input["camera_entity"].replace("camera.", "")
+            await self.async_set_unique_id(f"{DOMAIN}_{camera_id}", raise_on_progress=False)
+            return self.async_create_entry(title=f"Obico ML - {camera_id}", data=user_input)
 
         return self.async_show_form(
             step_id="user",

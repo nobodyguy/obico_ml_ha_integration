@@ -19,7 +19,7 @@ class ObicoConfidenceSensor(CoordinatorEntity, SensorEntity):
         self.coordinator = coordinator
         self._entry = entry
         self._attr_name = "Obico ML Failure Detection Confidence"
-        self._attr_unique_id = f"{DOMAIN}_failure_detection_confidence"
+        self._attr_unique_id = f"{DOMAIN}_{entry.entry_id}_failure_detection_confidence"
 
     @property
     def state(self):

@@ -19,7 +19,7 @@ class ObicoBinarySensor(CoordinatorEntity, BinarySensorEntity):
         self.coordinator = coordinator
         self._entry = entry
         self._attr_name = "Obico ML Failure Detected"
-        self._attr_unique_id = f"{DOMAIN}_error_detection"
+        self._attr_unique_id = f"{DOMAIN}_{entry.entry_id}_error_detection"
         self._attr_is_on = False
 
     @property

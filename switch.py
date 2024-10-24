@@ -18,7 +18,7 @@ class ObicoSwitch(CoordinatorEntity, SwitchEntity):
         SwitchEntity.__init__(self)
         self._entry = entry
         self._attr_name = "Obico ML Communication"
-        self._attr_unique_id = f"{DOMAIN}_api_communication"
+        self._attr_unique_id = f"{DOMAIN}_{entry.entry_id}_api_communication"
         self._is_on = coordinator.api_enabled
 
     @property

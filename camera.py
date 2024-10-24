@@ -18,7 +18,7 @@ class ObicoCamera(CoordinatorEntity, Camera):
         Camera.__init__(self)  # Initialize Camera
         self._entry = entry
         self._attr_name = "Obico ML Detection Camera"
-        self._attr_unique_id = f"{DOMAIN}_camera"
+        self._attr_unique_id = f"{DOMAIN}_{entry.entry_id}_camera"
         self._camera_entity_id = entry.data["camera_entity"]
         self._last_image = None
         self._camera_available = False  # Flag to check camera availability
